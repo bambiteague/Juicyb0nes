@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_182423) do
+ActiveRecord::Schema.define(version: 2021_03_29_205353) do
 
   create_table "costumes", force: :cascade do |t|
     t.text "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_03_27_182423) do
     t.text "name"
     t.integer "age"
     t.string "email"
+    t.string "password_digest"
   end
 
 end
