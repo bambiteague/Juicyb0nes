@@ -1,13 +1,11 @@
 class SessionsController < ApplicationController
   # handles changing my session (IE login logout)
 
-
   # login route FORM
   get '/login' do
     redirect_if_logged_in
     erb :'sessions/new'
   end
-
 
   #login route POST
   post '/login' do
@@ -24,7 +22,6 @@ class SessionsController < ApplicationController
       redirect "/login"
     end
   end
-
 
   #logout a user (DELETE)
   delete '/logout' do
