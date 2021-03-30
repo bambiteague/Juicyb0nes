@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_205353) do
+ActiveRecord::Schema.define(version: 2021_03_29_212113) do
 
   create_table "costumes", force: :cascade do |t|
     t.text "name"
     t.text "status"
-    t.integer "user_id"
+    t.integer "users_id"
+    t.index ["users_id"], name: "index_costumes_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|

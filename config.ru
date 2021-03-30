@@ -6,6 +6,10 @@ end
 
 use Rack::MethodOverride
 
+use SessionsController
+
+use UsersController
+
 use CostumesController
 
 run ApplicationController
