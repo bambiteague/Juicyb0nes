@@ -1,9 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-  #METHODS
-  # password=
-  # authenticate
-  # password_confirmation=
-  
+  validates :email, uniqueness: true  
   has_many :costumes
 end

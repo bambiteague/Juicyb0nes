@@ -4,12 +4,14 @@ class SessionsController < ApplicationController
 
   # login route FORM
   get '/login' do
+    redirect_if_logged_in
     erb :'sessions/new'
   end
 
 
   #login route POST
   post '/login' do
+    redirect_if_logged_in
     # take data and find user
     user = User.find_by(email: params["user"]["email"])
 
@@ -24,9 +26,11 @@ class SessionsController < ApplicationController
   end
 
 
-  #logout (DELETE)
+  #logout a user (DELETE)
   delete '/logout' do
-    
+    redirect_if_not_logged_in
+    session.clear
+    redirect "/login"
   end
 
 end  
