@@ -12,11 +12,10 @@
 </head>
 
 <body>
-  <div class="wrapper">
-
+<!-------- START NAVBAR ---------->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navigation</a>
+        <a class="navbar-brand" href="/">Welcome</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,7 +26,7 @@
             <a class="nav-link" href="/costumes">Gallery</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/homepage">Homepage</a>
+            <a class="nav-link" href="/homepage">Homepage</a> 
             </li>
           <% else %>
             <li class="nav-item">
@@ -45,6 +44,7 @@
             </div>
       </div>
     </nav>
+    <!-------- END NAVBAR ---------->
 
       <%= yield %>
 
@@ -55,16 +55,10 @@
         </form>
       <% end %>
 
-
       <footer class="branding">
         <small>&copy; 2021 <strong>Juicyb0nes</strong></small>
       </footer>
     </div>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!--[if lt IE 7]>
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
   </body>
 </html>

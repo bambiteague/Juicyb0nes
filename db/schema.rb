@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_212113) do
+ActiveRecord::Schema.define(version: 2021_03_31_191718) do
 
   create_table "costumes", force: :cascade do |t|
     t.text "name"
     t.text "status"
     t.integer "users_id"
+    t.text "description"
     t.index ["users_id"], name: "index_costumes_on_users_id"
   end
 
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_212113) do
     t.integer "age"
     t.string "email"
     t.string "password_digest"
+    t.text "reviews"
   end
 
 end
