@@ -6,8 +6,6 @@ end
 
 use Rack::MethodOverride
 
-use HomepageController
-
 use SessionsController
 
 use UsersController

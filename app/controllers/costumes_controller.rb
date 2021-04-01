@@ -1,8 +1,6 @@
 class CostumesController < ApplicationController
+  
   # READ all costumes
-  # right now this is boring/not useful. would like to turn into a part of the client's "homepage" that lets them view their current projects with me
-  # alternatively, showing them all my current projects and the status of their order in my que of projects?
-
   get '/costumes' do
     redirect_if_not_logged_in
     @costumes = Costume.all
@@ -29,9 +27,11 @@ class CostumesController < ApplicationController
 
   # READ 1 costume
   get '/costumes/:id' do
-    redirect_if_not_logged_in
-    redirect_if_not_authorized
-    erb :'homepage/my_home'
+    # redirect_if_not_logged_in
+    # redirect_if_not_authorized
+
+    "params[:id]-#{params[:id]}"
+   
   end 
 
   # UPDATE 1 costume (render form)
