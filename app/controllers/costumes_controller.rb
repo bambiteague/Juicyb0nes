@@ -12,7 +12,7 @@ class CostumesController < ApplicationController
   # CREATE new costume (render form)
   get '/costumes/new' do
     redirect_if_not_logged_in
-    erb :'costumes/new'
+    erb :'homepage/new'
   end
 
   # CREATE new costume (save in DB)
@@ -21,9 +21,9 @@ class CostumesController < ApplicationController
     costumes = Costume.new(params["name"]["description"])
     costumes.user_id = session["user_id"]
     if costumes.save
-      redirect "/homepage/my_home"
+      redirect "/homepage"
     else
-      redirect "costumes/new"
+      redirect "homepage/new"
     end
   end
 
@@ -31,14 +31,14 @@ class CostumesController < ApplicationController
   get '/costumes/:id' do
     redirect_if_not_logged_in
     redirect_if_not_authorized
-    erb :'costumes/show'
+    erb :'homepage/my_home'
   end 
 
   # UPDATE 1 costume (render form)
   get '/costumes/:id/edit' do
     redirect_if_not_logged_in
     redirect_if_not_authorized
-    erb :'costumes/edit'
+    erb :'homepage/my_home'
   end
 
   #UPDATE 1 costume (save in DEB)
@@ -58,7 +58,7 @@ class CostumesController < ApplicationController
     redirect_if_not_logged_in
     redirect_if_not_authorized
     @costume.destroy
-    redirect '/costumes'
+    redirect '/homepage'
   end
 
   private
@@ -66,7 +66,7 @@ class CostumesController < ApplicationController
   def redirect_if_not_authorized
     @costume = Costume.find_by_id(params[:id])
     if @costume.user_id != session["user_id"]
-      redirect "/costumes"
+      redirect "/homepage"
     end
   end
 

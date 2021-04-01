@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     # if that user is authenticated, login, redirect to '/costumes'
     if user && user.authenticate(params["user"]["password"])
         session["user_id"] = user.id
-        redirect "/costumes"
+        redirect "/homepage"
     # if not valid, send back to '/login'
     else
       redirect "/login"

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     # if that user is valid, login, redirect '/costumes' (or wherever)
     if user.save
       session["user_id"] = user.id
-      redirect "/costumes"
+      redirect "/homepage"
     # if user not valid, send back to '/signup'
     else
       # WILL WANT TO ADD A FLASH MESSAGE HERE!!!!!

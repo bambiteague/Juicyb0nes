@@ -34,7 +34,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_logged_in
-      redirect "/costumes" if logged_in?
+      redirect "/homepage" if logged_in?
     end
   end
 
