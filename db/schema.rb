@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_142237) do
+ActiveRecord::Schema.define(version: 2021_04_01_202253) do
 
   create_table "costumes", force: :cascade do |t|
     t.text "name"
     t.text "status"
-    t.integer "user_id"
     t.text "description"
-    t.index ["user_id"], name: "index_costumes_on_user_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,4 +27,5 @@ ActiveRecord::Schema.define(version: 2021_04_01_142237) do
     t.text "reviews"
   end
 
+  add_foreign_key "costumes", "users"
 end
