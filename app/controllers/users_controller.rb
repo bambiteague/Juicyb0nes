@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
   # handle Signup as well as editing or deleting a User account
-    # IF LOGGED IN, DONT'T SHOW SIGNUP
+  # IF LOGGED IN, DONT'T SHOW SIGNUP
 
   # sign up route FORM
   get '/signup' do 
-      #render form
+    #render form
     redirect_if_logged_in
     erb :"users/new"
   end
-
 
   # signup route POST (create user and log them in)
   post '/signup' do
@@ -21,7 +20,7 @@ class UsersController < ApplicationController
       redirect "/homepage"
     # if user not valid, send back to '/signup'
     else
-      # WILL WANT TO ADD A FLASH MESSAGE HERE!!!!!
+    # FLASH MESSAGE HERE!!!!! (if there's time)
       redirect "/signup"
     end
   end

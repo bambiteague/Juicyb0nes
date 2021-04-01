@@ -1,5 +1,4 @@
 class CostumesController < ApplicationController
-  
   # READ all costumes
   get '/costumes' do
     redirect_if_not_logged_in
@@ -38,7 +37,7 @@ class CostumesController < ApplicationController
   get '/costumes/:id/edit' do
     redirect_if_not_logged_in
     redirect_if_not_authorized
-    erb :'homepage/my_home'
+    erb :'costumes/edit'
   end
 
   #UPDATE 1 costume (save in DEB)
