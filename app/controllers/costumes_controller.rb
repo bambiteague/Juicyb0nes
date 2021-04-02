@@ -45,9 +45,9 @@ class CostumesController < ApplicationController
     redirect_if_not_authorized
     @costume.name = params[:name]
     if @costume.save
-      redirect "/costumes/#{@costume.id}"
+      redirect "costumes/#{@costume.id}"
     else
-      redirect "/costumes/#{@costume.id}/edit"
+      redirect "costumes/#{@costume.id}/edit"
     end 
   end
 
@@ -58,8 +58,6 @@ class CostumesController < ApplicationController
     @costume.destroy
     redirect '/costumes'
   end
-
-
 
   private
 

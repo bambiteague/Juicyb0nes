@@ -1,4 +1,7 @@
-<%= @costume.name %>
+<h1><b><%= @costume.name %></h1></b>
 <br>
-<p>
-<%# @costume.description %>
+<h5><%= @costume.description %></h5>
+<br>
+<input type = "submit" onclick="window.location='/costumes/:id';" value="Delete Costume"> 
+<br>
+<input type = "submit" onclick="window.location='/costumes/:id/edit';" value="Edit A Costume"> 

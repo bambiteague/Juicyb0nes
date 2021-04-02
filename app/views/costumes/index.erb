@@ -1,6 +1,9 @@
 
 <ul>
 <%  @costumes.each do |c| %>
-<li> <%= c.name %></li>
+<li> 
+<a href="/costumes/<%= c.id %>"><%= c.name %></a>
+</li>
 <% end  %>
 </ul>
+

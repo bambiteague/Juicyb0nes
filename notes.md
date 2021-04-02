@@ -47,3 +47,13 @@
 - containers and better layout (use up whitespace)
 - CSS file
 - background (image?)
+
+
+Suggestion from Ryan for across page button!---> edit it for yourself tho
+<input type = "submit" onclick="window.location='/scoreboards';" value="Go Back To Home">
+
+suggest from Jill for error message--->
+    not_found do
+        status 404
+        erb :error
+      end
