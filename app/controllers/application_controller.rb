@@ -10,12 +10,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-   erb :'welcome'
+   erb :'/index'
   end
 
   get "/search" do
     @costumes  = Costumes.find_by(name: params["name"])
-    erb :'search'
+    erb :'results'
   end
 
 
@@ -34,7 +34,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_logged_in
-      redirect "/costumes" if logged_in?
+      redirect "/costumes/:id/edit" if logged_in?
     end
   end
 
