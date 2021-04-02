@@ -28,14 +28,14 @@ class CostumesController < ApplicationController
   get '/costumes/:id' do
     redirect_if_not_logged_in
     redirect_if_not_authorized  
-     @costume = Costume.find_by_id(params[:id])
     erb :'costumes/show'
   end 
 
   # UPDATE 1 costume (render form)
   get '/costumes/:id/edit' do
-    redirect_if_not_logged_in
-    redirect_if_not_authorized
+    # redirect_if_not_logged_in
+    # redirect_if_not_authorized
+    @costume = Costume.find_by_id(params[:id])
     erb :'costumes/edit'
   end
 
@@ -44,8 +44,9 @@ class CostumesController < ApplicationController
     redirect_if_not_logged_in
     redirect_if_not_authorized
     @costume.name = params[:name]
+    @costume.description = params[:description]
     if @costume.save
-      redirect "costumes/#{@costume.id}"
+      redirect "costumes/show"
     else
       redirect "costumes/#{@costume.id}/edit"
     end 
@@ -63,9 +64,9 @@ class CostumesController < ApplicationController
 
   def redirect_if_not_authorized
     @costume = Costume.find_by_id(params[:id])
-      redirect '/costumes' unless @costume
+      redirect '/costumes/edit' unless @costume
     if @costume.user_id != session["user_id"]
-      redirect "/costumes/:id/edit"
+      redirect "/costumes"
     end
   end
 
