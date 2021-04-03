@@ -36,6 +36,10 @@ class ApplicationController < Sinatra::Base
       redirect "/login" if !logged_in?
     end
 
+    def redirect_if_logged_in
+      redirect "/costumes/:id/edit" if logged_in?
+    end
+
     not_found do
       status 404
       erb :error

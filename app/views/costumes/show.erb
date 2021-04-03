@@ -2,11 +2,9 @@
 <br>
 <h5><%= @costume.description %></h5>
 <br>
-<form method="post" action="/costumes/edit">
-    <input type="hidden" name="costume[name]" value="name">
-    <input type="hidden" name="costume[description]" value="description">
-    <input class='btn btn-primary' type='submit' value='Edit Submission'>
+<a href="/costumes/<%= @costume.id %>/edit">click to edit</a>
+
+<form action="/costumes/<%= @costume.id %>" method="post">
+<input id="hidden" type="hidden" name="_method" value="delete">
+  <div><button type="submit">Delete Submission</button></div>
 </form>
-<br>
-<input type = "submit" onclick="window.location='/costumes/<%= @costume.id %>';" value="Delete Costume"> 
-<input type = "submit" onclick="window.location='/costumes/<%= @costume.id %>/edit';" value="Edit Costume"> 

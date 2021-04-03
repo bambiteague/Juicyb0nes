@@ -1,5 +1,6 @@
 
-<form action="/costumes/<%= @costume.id %>" method="patch"> 
+<form action="/costumes/<%= @costume.id %>" method="post"> 
+  <input id="hidden" type="hidden" name="_method" value="patch">
   <input type="text" name="costume[name]" value="<%= @costume.name %>">
   <input type="text" name="costume[description]" value="<%= @costume.description %>">
   <input type="submit" value="Update Submission">

@@ -31,8 +31,6 @@ class CostumesController < ApplicationController
     erb :'costumes/show'
   end 
 
-  # <-------- huge issues getting these update and delete routes to work correctly and I'm still not sure why -------->
-
 # UPDATE 1 costume (render form)
 get '/costumes/:id/edit' do
   redirect_if_not_logged_in
@@ -46,9 +44,9 @@ end
     @costume = Costume.find_by_id(params[:id])
     @costume.name = params["name"]
     @costume.description = params["description"]
-   
+    @costume.save
     if @costume.update(params["costume"])
-      redirect "/costumes"
+      redirect "/costumes/#{@costume.id}"
     else                                      
       redirect "/costumes/#{@costume.id}/edit"
     end 
@@ -59,7 +57,6 @@ end
     if logged_in?
       @costume = Costume.find_by_id(params[:id])
       if @costume.user == current_user
-      erb :'/costumes/show'
       @costume.destroy
       end
       redirect to '/costumes'
@@ -72,7 +69,7 @@ end
 
   def redirect_if_not_authorized
     @costume = Costume.find_by_id(params[:id])
-      redirect '/costumes/edit'
+      redirect '/costumes' unless @costume
     if @costume.user_id != session["user_id"]
       redirect "/costumes"
     end
