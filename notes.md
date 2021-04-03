@@ -49,8 +49,15 @@
 - background (image?)
 
 
-Suggestion from Ryan for across page button!---> edit it for yourself tho
+Suggestion from Ryan for across page button!---> edit it for yourself tho:
 <input type = "submit" onclick="window.location='/scoreboards';" value="Go Back To Home">
+
+Mine---->
+<input type = "submit" onclick="window.location='/costumes/:id';" value="Delete Costume"> 
+<br>
+<input type = "submit" onclick="window.location='/costumes/:id/edit';" value="Edit Costume"> 
+
+
 
 suggest from Jill for error message--->
     not_found do

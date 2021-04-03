@@ -14,7 +14,10 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/search" do
-    @costume = Costume.find_by(name: params["name"])
+    @costume = Costume.find_by(params["name"])
+    if @costume != params["name"]
+      not_found
+    end
     erb :'/results'
   end
 
@@ -33,8 +36,9 @@ class ApplicationController < Sinatra::Base
       redirect "/login" if !logged_in?
     end
 
-    def redirect_if_logged_in
-      redirect "/costumes/:id/edit" if logged_in?
+    not_found do
+      status 404
+      erb :error
     end
   end
 

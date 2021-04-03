@@ -2,6 +2,11 @@
 <br>
 <h5><%= @costume.description %></h5>
 <br>
-<input type = "submit" onclick="window.location='/costumes/:id';" value="Delete Costume"> 
+<form method="post" action="/costumes/edit">
+    <input type="hidden" name="costume[name]" value="name">
+    <input type="hidden" name="costume[description]" value="description">
+    <input class='btn btn-primary' type='submit' value='Edit Submission'>
+</form>
 <br>
-<input type = "submit" onclick="window.location='/costumes/:id/edit';" value="Edit A Costume"> 
+<input type = "submit" onclick="window.location='/costumes/<%= @costume.id %>';" value="Delete Costume"> 
+<input type = "submit" onclick="window.location='/costumes/<%= @costume.id %>/edit';" value="Edit Costume"> 
