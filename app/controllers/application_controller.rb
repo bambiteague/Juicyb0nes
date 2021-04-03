@@ -10,11 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-   erb :'/search'
+   erb :'/index'
   end
 
   get "/search" do
-    @costume = Costume.find_by(name: params[:name])
+    @costume = Costume.find_by(name: params["name"])
     erb :'/results'
   end
 
