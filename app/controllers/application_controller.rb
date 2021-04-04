@@ -14,17 +14,15 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/search" do
-    @costume = Costume.find_by(name: params["name"])
+    @costume = Costume.all.find_by(name: params["name"])
     if @costume != params["name"]
       not_found
     end
     erb :'results'
   end
 
-
   helpers do 
     def current_user
-      # memoization
       @current_user ||= User.find_by_id(session["user_id"])
     end
 
