@@ -16,7 +16,7 @@ class CostumesController < ApplicationController
   post '/costumes' do
     redirect_if_not_logged_in
     costumes = Costume.new(params["costume"])  
-
+    costumes.user_id = session["user_id"]
     if costumes.save
       redirect "/costumes/#{costumes.id}"
     else 
@@ -31,22 +31,24 @@ class CostumesController < ApplicationController
     erb :'costumes/show'
   end 
 
-# UPDATE 1 costume (render form)
-get '/costumes/:id/edit' do
-  redirect_if_not_logged_in
-  @costume = Costume.find_by_id(params[:id])
+  # UPDATE 1 costume (render form)
+  get '/costumes/:id/edit' do
+    redirect_if_not_logged_in
+    redirect_if_not_authorized
+    @costume = Costume.find_by_id(params[:id])
   erb :'costumes/edit'
 end
 
   #UPDATE 1 costume (save in DB)
   patch '/costumes/:id' do
     redirect_if_not_logged_in
+    redirect_if_not_authorized
     @costume = Costume.find_by_id(params[:id])
     @costume.name = params["name"]
     @costume.description = params["description"]
     @costume.save
     if @costume.update(params["costume"])
-      redirect "/costumes/#{@costume.id}"
+      redirect "/costumes/params[:id]"
     else                                      
       redirect "/costumes/#{@costume.id}/edit"
     end 
@@ -54,6 +56,7 @@ end
 
   # DELETE 1 Costume
   delete '/costumes/:id' do
+    redirect_if_not_authorized
     if logged_in?
       @costume = Costume.find_by_id(params[:id])
       if @costume.user == current_user

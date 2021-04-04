@@ -1,8 +1,9 @@
 
-<form action="/costumes/<%= @costume.id %>" method="post"> 
+<form action="/costumes/<%= @costume.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <input type="text" name="costume[name]" value="<%= @costume.name %>">
-  <input type="text" name="costume[description]" value="<%= @costume.description %>">
+  <input type="text" name="costume[name]" value="<%= @costume.name %>"><br>
+  <input type="text" name="costume[suit_owner]" placeholder="<%= @costume.suit_owner %>"><br>
+  <input type="text" name="costume[ranking]" placeholder="<%= @costume.ranking %>"><br>
+  <textarea name="costume[description]" value="<%= @costume.description %>"><%= @costume.description %></textarea><br>
   <input type="submit" value="Update Submission">
 </form>  
-
