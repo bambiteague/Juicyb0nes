@@ -14,10 +14,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/search" do
-    @costume = Costume.all.find_by(name: params["name"])
-    if @costume != params["name"]
-      not_found
-    end
+    @costume = Costume.all.find_by(name: params["costumes"]["name"])
+   
+    # if @costume != params["costumes"]["name"]
+    #   not_found
+    # end
     erb :'results'
   end
 
