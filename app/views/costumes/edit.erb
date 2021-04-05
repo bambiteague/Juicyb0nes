@@ -1,4 +1,4 @@
-
+<h5>Edit your submission:</h5><br><br>
 <form action="/costumes/<%= @costume.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <input type="text" name="costume[name]" value="<%= @costume.name %>"><br>

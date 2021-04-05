@@ -15,10 +15,9 @@ class ApplicationController < Sinatra::Base
 
   get "/search" do
     @costume = Costume.all.find_by(name: params["costumes"]["name"])
-   
-    # if @costume != params["costumes"]["name"]
-    #   not_found
-    # end
+    if @costume == nil
+      not_found
+    end
     erb :'results'
   end
 
